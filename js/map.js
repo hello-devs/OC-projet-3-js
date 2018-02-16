@@ -70,38 +70,49 @@ function initMap() {
 
 
             function showStationInfos() {
-                //map
-                map.stationSelect.name = station.name;
-                map.stationSelect.address = station.address;
+                if (station.available_bikes > 0) {
+                    //map
+                    map.stationSelect.name = station.name;
+                    map.stationSelect.address = station.address;
 
-                //aside
-                $('#infoReservation').css('display', 'none');
-                //$('#infoStation').remove();
+                    //aside
+                    $('#infoReservation').css('display', 'none');
+                    //$('#infoStation').remove();
 
-                $('#map').removeClass('col s12').addClass('col s12 l8');
+                    $('#map').removeClass('col s12').addClass('col s12 l8');
 
-                $('#infoStation').css('display', 'block');
+                    $('#infoStation').css('display', 'block');
 
-                $('#stationName').text(station.name);
-                $('#statusStation').text(station.status);
-                $('#indicAdress').text(station.address);
-                $('#availableBike').text(station.available_bikes);
+                    $('#stationName').text(station.name);
+                    $('#statusStation').text(station.status);
+                    $('#indicAdress').text(station.address);
+                    $('#availableBike').text(station.available_bikes);
 
-                //Reservation
-                $('#btnSelect').click(function () {
-                    if (sessionStorage.getItem('reservation')) {
-
-                        /////////////Modal////////////////////
-                        $('#gotReservation').modal();
-
-                    } else {
-                        initReservation();
-                    }
-
-                });
+                    //Reservation
+                    $('#btnSelect').click(function () {
 
 
 
+                        if (sessionStorage.getItem('reservation')) {
+
+                            /////////////Modal////////////////////
+                            $('#gotReservation').modal();
+
+                        } else {
+                            initReservation();
+                        }
+
+
+
+
+                    });
+
+
+                } else {
+                    /////////////Modal////////////////////
+                    $('#noBike').modal();
+                    //window.location = ("./index.html");
+                }
 
 
 

@@ -98,6 +98,10 @@ function showFooterReservation() {
         expire();
         /////////////Modal////////////////////
         $('#annulReservation').modal();
+        //////////////////////////////////////////////Solution temporaire:
+        setTimeout(function  () {   
+            window.location = ("./index.html"); 
+        },3000)
     });
 
 }
@@ -122,14 +126,14 @@ function finReservation() {
             //console.log(reservation); //test
 
         } else {
-
+            console.log("expiré");
             expire();
             /////////////Modal////////////////////
             $('#expiReservation').modal();
         }
 
     } else {
-
+        console.log("expiré");
         expire();
         /////////////Modal////////////////////
         $('#expiReservation').modal();
@@ -159,6 +163,7 @@ function calcMinSec() {
         $('#footerDlcSec').text(reservation.dlcSec);
 
     } else {
+        console.log("expiré");
         expire();
         /////////////Modal////////////////////
         $('#expiReservation').modal();
@@ -179,7 +184,7 @@ function expire() {
     //Changement Info footer
     $('#reservationFooter').css('display', 'none');
     $('#noReservationFooter').css('display', 'block');
-   //location.replace('#'); 
+    
 
 
 
