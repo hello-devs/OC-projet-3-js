@@ -99,9 +99,9 @@ function showFooterReservation() {
         /////////////Modal////////////////////
         $('#annulReservation').modal();
         //////////////////////////////////////////////Solution temporaire:
-        setTimeout(function  () {   
-            window.location = ("./index.html"); 
-        },3000)
+        setTimeout(function () {
+            window.location = ("./index.html");
+        }, 3000)
     });
 
 }
@@ -130,6 +130,10 @@ function finReservation() {
             expire();
             /////////////Modal////////////////////
             $('#expiReservation').modal();
+            //////////////////////////////////////////////Solution temporaire:
+            setTimeout(function () {
+                window.location = ("./index.html");
+            }, 3000)
         }
 
     } else {
@@ -137,6 +141,10 @@ function finReservation() {
         expire();
         /////////////Modal////////////////////
         $('#expiReservation').modal();
+        //////////////////////////////////////////////Solution temporaire:
+        setTimeout(function () {
+            window.location = ("./index.html");
+        }, 3000)
     }
 
 
@@ -167,6 +175,10 @@ function calcMinSec() {
         expire();
         /////////////Modal////////////////////
         $('#expiReservation').modal();
+        //////////////////////////////////////////////Solution temporaire:
+        setTimeout(function () {
+            window.location = ("./index.html");
+        }, 3000)
     }
 
 }
@@ -176,7 +188,7 @@ function calcMinSec() {
 function expire() {
     sessionStorage.clear();
     clearInterval(reservation.actualisation);
-    
+
     console.log(reservation);
     reservation = {};
     console.log(reservation);
@@ -184,7 +196,7 @@ function expire() {
     //Changement Info footer
     $('#reservationFooter').css('display', 'none');
     $('#noReservationFooter').css('display', 'block');
-    
+
 
 
 
