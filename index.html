@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Location de vélo: Ville de Lyon</title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg" href="imgs/silhouettevelo.svg" />
+
+    <!--     Materialize css     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
+    <link rel="stylesheet" href="materialize/materializesansmodal.min.css">
+
+    <!--     Bootstrap css     -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+    <!--     css     -->
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <!--      Mobile     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--      Ajout de polices en ligne  -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Oswald" rel="stylesheet">
+
+    <!--reseau sociaux-->
+    <meta name="description" content="Site de location de vélo de la ville de lyon" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="Site de location de vélo de la ville de lyon">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Location de vélo à Lyon" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.example.com/" />
+    <meta property="og:image" content="http://example.com/imgs/silhouettevelo.svg" />
+    <meta property="og:description" content="Site de location de vélo de la ville de lyon" />
+    <!--reseau sociaux-->
+
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <header class="row z-depth-4">
+            <img id="velov" class="col-lg-1 col-md-2 col-sm-3" src="imgs/velov.png" alt="logo velo'v">
+            <h1 class="col-sm-9 col-md-10 col-lg-6 col-lg-offset-1">Location de vélo: Ville de Lyon</h1>
+        </header>
+
+    </div>
+
+    <div class="container">
+
+        <section id="helpSection" class="row">
+
+            <div id="smHelp" class="visible-xs-block visible-sm-block ">
+                <div class="border z-depth-4">
+                    <h2>&Eacute;TAPE 1:</h2>
+                    <p>Cliquer sur un ensemble de stations pour zoomer sur celui-ci.</p>
+                </div>
+                <div class="border z-depth-4">
+                    <h2>&Eacute;TAPE 2:</h2>
+                    <p>Cliquer sur une station qui dispose d'un vélo libre.</p>
+                </div>
+                <div class="border z-depth-4">
+                    <h2>&Eacute;TAPE 3:</h2>
+                    <p>Cliquer sur "Réserver"</p>
+                </div>
+
+
+            </div>
+
+            <div id="divHelp" class="hidden-xs hidden-sm col-md-12 ">
+                <ul class="helpImg">
+                    <li id="slide3" class="imgSlider">
+                        <img class="imgElt z-depth-4" src="imgs/step3.png" alt="">
+                        <div class="txtSlider  bg-primary z-depth-4">
+                            <h2>&Eacute;TAPE 3:</h2>
+                            <p>Cliquer sur "Reserver"</p>
+                        </div>
+
+                    </li>
+                    <li id="slide2" class="imgSlider">
+                        <img class="imgElt z-depth-4" src="imgs/step2.png" alt="">
+                        <div class="txtSlider  bg-primary z-depth-4">
+                            <h2>&Eacute;TAPE 2:</h2>
+                            <p>Cliquer sur une station qui dispose d'un vélo libre.</p>
+                        </div>
+                    </li>
+                    <li id="slide1" class="imgSlider">
+                        <img class="imgElt z-depth-4" src="imgs/step1.png" alt="">
+                        <div class="txtSlider  bg-primary z-depth-4">
+                            <h2>&Eacute;TAPE 1:</h2>
+                            <p>Cliquer sur un ensemble de stations pour zoomer sur celui-ci.</p>
+                        </div>
+                    </li>
+
+                </ul>
+
+                <div id="arrow">
+                    <div id="prevArrow"><i class="fas fa-angle-double-left fa-2x bgCircle z-depth-4"></i></div>
+                    <div id="nextArrow"><i class="fas fa-angle-double-right fa-2x bgCircle z-depth-4"></i></div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section id="resa" class="row ">
+
+
+            <div id="map" class="col s12 z-depth-4">
+
+            </div>
+
+
+            <aside id="infoReservation" class="col s12 l4">
+                <!-- class="col-xs-12 col-md-4" -->
+                <div id="infoR" class="bg-primary border z-depth-4">
+                    <h3 style="text-align:center;">R&Eacute;SERVATION:</h3>
+                    <form id="formReservation">
+                        <input type="text" id="name" name="name" placeholder="Votre Nom" title="nom" class="inputReservation" required><br>
+                        <input type="text" id="firstname" name="firstname" placeholder="Votre Prénom" title="prenom" class="inputReservation" required><br>
+                        <div>
+                            <canvas id="signature" width="200px" height="200px" class="border">Votre navigateurne ere pas cette fonctionnalité.</canvas>
+                        </div>
+                        <div>
+                            <input type="submit" value="Réserver">
+                            <input id="reset" type="reset" value=" Annuler ">
+                        </div>
+                    </form>
+                </div>
+            </aside>
+
+            <aside id="infoStation" class="col-xs-12 col-md-4">
+                <div id="info" class="bg-primary border z-depth-4">
+                    <h3 style="color:white; text-align:center;">INFORMATION STATION:</h3><br>
+                    <h4 class="border" id="stationName"></h4>
+                    <h5>Localisation: <span id="indicAdress"></span></h5><br>
+                    <h5>Status: <span id="statusStation"></span></h5><br>
+                    <h5>Vélo(s) disponible: <span id="availableBike"></span></h5><br>
+                    <div class="ctr"><button id="btnSelect" class="butn">S&Eacute;LECTIONNER</button></div>
+                </div>
+            </aside>
+
+
+
+        </section>
+
+
+
+    </div>
+
+
+
+    <div class="container-fluid">
+
+        <footer class="row z-depth-4">
+
+
+            <div id="noReservationFooter" class="col-sm-12">
+                <h4>PAS DE RESERVATION EN COURS</h4>
+            </div>
+
+            <div id="reservationFooter" class="col-sm-12 col-md-8 col-md-offset-2">
+                <table class=" table table-striped ">
+
+                    <caption>R&Eacute;SERVATION EN COURS:</caption>
+                    <tr>
+                        <th>Station réservée:</th>
+                        <td id="footerNomStation"></td>
+                    </tr>
+                    <tr>
+                        <th>Localisation de la station</th>
+                        <td id="footerAddress"></td>
+                    </tr>
+                    <tr>
+                        <th>Client:</th>
+                        <td id="footerClient"></td>
+                    </tr>
+
+                    <tr>
+                        <th>Expiration:</th>
+                        <td> <span id="footerDlcMin"></span> min(s) et <span id="footerDlcSec"></span> sec(s).</td>
+                    </tr>
+
+                </table>
+                <button id="" class="butn cancelReservation" title="annuler reservation">Annuler la reservation</button>
+            </div>
+
+        </footer>
+    </div>
+
+
+    <!-- Modal -->
+    <!-- Modal Réservation en cours -->
+    <div id="gotReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Une réservation déja est en cours.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary cancelReservation">Annuler la reservation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Réservation annulé -->
+    <div id="annulReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Réservation annulée !!!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Modal Réservation expiré -->
+    <div id="expiReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Votre réservation a expiré</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!--     script     -->
+    <script type="text/javascript" src="js/ajax.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!--     bootstrap     -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!--     Appel de l'api map     -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxCpO4uRX3qiHkx9fGFKLyo-BYTZy1SrA&callback=initMap" async defer></script>
+    <!--     regroupement de marqueur     -->
+    <script type="text/javascript" src="js/markerclusterer.js"></script>
+    <!--     slider     -->
+    <script type="text/javascript" src="js/slider.js"></script>
+    <!--     initialisation de la map     -->
+    <script type="text/javascript" src="js/map.js"></script>
+    <!--     canvas     -->
+    <script type="text/javascript" src="js/canvas.js"></script>
+    <!--     reservation     -->
+    <script type="text/javascript" src="js/reservation.js"></script>
+
+
+</body>
+
+</html>

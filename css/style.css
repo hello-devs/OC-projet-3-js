@@ -1,0 +1,267 @@
+
+/************header***********/
+body
+{
+    background-color: linen;
+}
+header
+{
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+header h1
+{
+    padding: 0;
+    margin: 15px;
+}
+
+h1 
+{
+    font-family: 'Oswald', sans-serif !important;
+    color: white !important;
+    padding-left: 15px;
+    margin-bottom: 0;
+}
+
+#velov
+{
+}
+
+p 
+{
+    color: black;
+}
+
+.ctr
+{
+    display: flex;
+    justify-content: center;
+}
+
+.butn
+{
+    border-radius: 5px;
+    color: black;
+}
+
+.border
+{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/***********Footer***********/
+footer
+{
+    margin-top: 2em;
+    background-color: grey;
+    min-height:  150px;
+    padding-bottom: 1em;
+}
+
+div#noReservationFooter>h4
+{
+    text-align: center;
+}
+
+#reservationFooter
+{
+    display: none;
+}
+
+caption
+{
+    color: white;
+}
+
+
+/**********Slider************/
+/*xs*sm*/
+#smHelp
+{
+    width: 100%;
+    margin-top: 20px;
+    
+}
+#smHelp div
+{
+    padding: 0.5rem;
+    border-radius: 10px;
+    background-color: white;
+}
+/*md*lg*xl*/
+#helpSection
+{
+    width: 100%;
+    margin: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#divHelp
+{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 0;
+    height: 200px;
+}
+
+
+.helpImg
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.imgSlider
+{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    padding-left: 55px;
+}
+
+.imgElt
+{
+    height: 200px;
+    border-radius: 15px 0 0 15px;
+}
+
+.txtSlider
+{
+    border-radius: 0 15px  15px 0;
+    padding-left: 20px;
+    width: 100%;
+    margin-right: 55px;
+}
+
+#arrow
+{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.bgCircle
+{
+    background-color: rgba(150,150,150,0.5);
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    padding: 5px;
+    margin: 2px;
+}
+
+
+#prevArrow
+{
+    z-index: 10;
+}
+
+#nextArrow
+{
+        z-index: 10;
+}
+
+/**********infoStation**********/
+#resa 
+{
+    height: 450px;
+    margin: 0px;
+}
+
+#map
+{
+    margin-top: 2em;
+    border-radius: 10px;
+    height: 100%;
+}
+
+#info
+{
+    border-radius: 10px;
+    height: 100%;
+    padding: 5px;
+}
+
+#infoStation
+{
+    display: none;
+    margin-top: 2em;
+    height: 100%;
+    margin-left: 0;
+    padding-left:  0px;
+    padding-right: 0;
+    flex-wrap: wrap;
+}
+
+
+#stationName
+{
+    padding:2px;
+    text-align:center;
+    border-radius:15px;
+}
+
+
+/**********reservation**********/
+#infoReservation
+{
+    display: none;
+    height: 100%;
+    margin-top: 2em;
+    padding-left: 0;
+    padding-right: 0;
+}
+#infoR
+{
+    border-radius: 10px;
+    height: 100%;
+    padding: 5px;
+}
+
+#infoR form
+{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputReservation
+{
+    margin-bottom: 5px;
+    width: 75%;
+    color: black;
+}
+
+#signature
+{
+    z-index: 100;
+    background-color: white;
+}
+
+
+input[type=text]:focus
+{
+    background-color: white;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+#name,#firstname
+{
+    color: black;
+    background-color: white;
+    font-size: 1em;
+}
+
+
