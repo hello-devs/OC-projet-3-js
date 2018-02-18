@@ -33,7 +33,6 @@ function initReservation() {
     $('#formReservation').submit(function (e) {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
         console.log(reservation); //test
-
         if (!reservation.sign) {
             //remplacer par modal
             alert('pas de signature');
@@ -44,31 +43,23 @@ function initReservation() {
                 address: map.stationSelect.address,
                 client: this.name.value + " " + this.firstname.value,
                 dateReservation: new Date(),
+                sign: reservation.sign,
                 limit: null,
                 dlcMin: null,
                 dlcSec: null,
             };
-
             var reservation_json = JSON.stringify(reservation);
-
             //Stoque la reservation  dans la sessionstorage
             sessionStorage.setItem('reservation', reservation_json);
             $('#infoReservation').css('display', 'none');
             $('#map').removeClass('col s12 l8').addClass('col s12');
 
             showFooterReservation();
-
-
-
         }
-        e.preventDefault(); // Annulation de l'envoi des données   
-
-
-
+        e.preventDefault(); // Annulation de l'envoi des données
     });
 
 }
-
 
 
 function showFooterReservation() {
@@ -79,7 +70,7 @@ function showFooterReservation() {
 
 
     //Validité de la reservation
-    finReservation();
+    delaiReservation();
 
 
     //Affichage info footer
@@ -94,23 +85,20 @@ function showFooterReservation() {
     //Annuler reservation
 
     $('.cancelReservation').click(function () {
-
+        //clearInterval(reservation.actualisationTps);
         expire();
         /////////////Modal////////////////////
         $('#annulReservation').modal();
-        //////////////////////////////////////////////Solution temporaire:
-        setTimeout(function () {
-            window.location = ("./index.html");
-        }, 3000)
+
     });
 
 }
 
-function finReservation() {
+function delaiReservation() {
     var dateReservation = new Date(reservation.dateReservation);
     //console.log("dateReservation: " + dateReservation);
 
-    reservation.limit = new Date(dateReservation.setMinutes(dateReservation.getMinutes() + 1));
+    reservation.limit = new Date(dateReservation.setMinutes(dateReservation.getMinutes() + 1));  //1 Pour test
     //console.log("reservation.limit :" + reservation.limit);
     //console.log("now: " + Date());
 
@@ -122,29 +110,27 @@ function finReservation() {
             console.log("Réservation valide");
 
             //Actualiser ttes les sec
-            reservation.actualisation = setInterval(calcMinSec, 1000);
+            reservation.actualisationTps = setInterval(calcMinSec, 1000);
             //console.log(reservation); //test
 
         } else {
             console.log("expiré");
+            //clearInterval(reservation.actualisationTps);
             expire();
             /////////////Modal////////////////////
             $('#expiReservation').modal();
             //////////////////////////////////////////////Solution temporaire:
-            setTimeout(function () {
-                window.location = ("./index.html");
-            }, 3000)
+
         }
 
     } else {
         console.log("expiré");
+        //clearInterval(reservation.actualisationTps);
         expire();
         /////////////Modal////////////////////
         $('#expiReservation').modal();
         //////////////////////////////////////////////Solution temporaire:
-        setTimeout(function () {
-            window.location = ("./index.html");
-        }, 3000)
+
     }
 
 
@@ -172,13 +158,11 @@ function calcMinSec() {
 
     } else {
         console.log("expiré");
+        //clearInterval(reservation.actualisationTps);
         expire();
         /////////////Modal////////////////////
         $('#expiReservation').modal();
-        //////////////////////////////////////////////Solution temporaire:
-        setTimeout(function () {
-            window.location = ("./index.html");
-        }, 3000)
+
     }
 
 }
@@ -186,13 +170,16 @@ function calcMinSec() {
 
 
 function expire() {
-    sessionStorage.clear();
-    clearInterval(reservation.actualisation);
 
-    console.log(reservation);
+    clearInterval(reservation.actualisationTps);
+
+    //reservation.actualisationTps = null;
+    //reservation.dlcMin = null;
+    //reservation.dlcSec = null;
     reservation = {};
-    console.log(reservation);
 
+    sessionStorage.clear();
+    console.log(reservation);
     //Changement Info footer
     $('#reservationFooter').css('display', 'none');
     $('#noReservationFooter').css('display', 'block');
