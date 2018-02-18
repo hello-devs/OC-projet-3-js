@@ -29,13 +29,17 @@ function initReservation() {
     reservation.sign = false;
     console.log(reservation); //test
 
+        // Bouton Reset :
+    $("#reset").click(function () {
+        reservation.sign = false;
+    });
 
     $('#formReservation').submit(function (e) {
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
         console.log(reservation); //test
         if (!reservation.sign) {
-            //remplacer par modal
-            alert('pas de signature');
+            /////////////Modal////////////////////
+        $('#signReservation').modal();
         } else {
             //Recuperation en variable global
             reservation = {
@@ -89,6 +93,10 @@ function showFooterReservation() {
         expire();
         /////////////Modal////////////////////
         $('#annulReservation').modal();
+        //////////////////////////////////////////////Solution temporaire:
+        setTimeout(function () {
+            window.location = ("./index.html");
+        }, 3000);
 
     });
 
@@ -98,7 +106,7 @@ function delaiReservation() {
     var dateReservation = new Date(reservation.dateReservation);
     //console.log("dateReservation: " + dateReservation);
 
-    reservation.limit = new Date(dateReservation.setMinutes(dateReservation.getMinutes() + 1));  //1 Pour test
+    reservation.limit = new Date(dateReservation.setMinutes(dateReservation.getMinutes() + 1)); //1 Pour test
     //console.log("reservation.limit :" + reservation.limit);
     //console.log("now: " + Date());
 
@@ -120,7 +128,9 @@ function delaiReservation() {
             /////////////Modal////////////////////
             $('#expiReservation').modal();
             //////////////////////////////////////////////Solution temporaire:
-
+            setTimeout(function () {
+                window.location = ("./index.html");
+            }, 3000);
         }
 
     } else {
@@ -130,7 +140,9 @@ function delaiReservation() {
         /////////////Modal////////////////////
         $('#expiReservation').modal();
         //////////////////////////////////////////////Solution temporaire:
-
+        setTimeout(function () {
+            window.location = ("./index.html");
+        }, 3000);
     }
 
 
@@ -162,6 +174,10 @@ function calcMinSec() {
         expire();
         /////////////Modal////////////////////
         $('#expiReservation').modal();
+        //////////////////////////////////////////////Solution temporaire:
+        setTimeout(function () {
+            window.location = ("./index.html");
+        }, 3000);
 
     }
 
@@ -174,8 +190,8 @@ function expire() {
     clearInterval(reservation.actualisationTps);
 
     //reservation.actualisationTps = null;
-    //reservation.dlcMin = null;
-    //reservation.dlcSec = null;
+    reservation.dlcMin = null;
+    reservation.dlcSec = null;
     reservation = {};
 
     sessionStorage.clear();
