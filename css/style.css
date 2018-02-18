@@ -129,7 +129,7 @@ caption
     display: flex;
     width: 100%;
     flex-direction: row;
-    padding-left: 55px;
+    /*padding-left: 55px;*/
 }
 
 .imgElt
@@ -143,7 +143,7 @@ caption
     border-radius: 0 15px  15px 0;
     padding-left: 20px;
     width: 100%;
-    margin-right: 55px;
+    /*margin-right: 55px;*/
 }
 
 #arrow
@@ -152,18 +152,16 @@ caption
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     color: red;
 }
 
 .bgCircle
 {
-    background-color: rgb(128, 128, 128);
-    height: 40px;
-    width: 40px;
-    border-radius: 50px;
-    padding: 6px;
-    margin: 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 50px;
+    width: 35px;
+    margin-top: 50%;
 }
 
 
@@ -175,6 +173,20 @@ caption
 #nextArrow
 {
     z-index: 10;
+}
+
+.ileft
+{
+    border-radius: 0 15px 15px 0;
+    padding-top: 25%;
+    padding-left: 4px;
+}
+
+.iright
+{
+    border-radius: 15px 0 0 15px;
+    padding-top: 25%;
+    padding-left: 6px;
 }
 
 /**********infoStation**********/
