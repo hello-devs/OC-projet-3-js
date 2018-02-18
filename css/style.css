@@ -2,7 +2,7 @@
 /************header***********/
 body
 {
-    background-color: linen;
+    background-color: rgb(241, 241, 241);
 }
 header
 {
@@ -51,6 +51,11 @@ p
 {
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.bg-white
+{
+    background-color: white;
 }
 
 /***********Footer***********/
@@ -124,7 +129,7 @@ caption
     display: flex;
     width: 100%;
     flex-direction: row;
-    padding-left: 55px;
+    /*padding-left: 55px;*/
 }
 
 .imgElt
@@ -138,7 +143,7 @@ caption
     border-radius: 0 15px  15px 0;
     padding-left: 20px;
     width: 100%;
-    margin-right: 55px;
+    /*margin-right: 55px;*/
 }
 
 #arrow
@@ -147,17 +152,16 @@ caption
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    color: red;
 }
 
 .bgCircle
 {
-    background-color: rgba(150,150,150,0.5);
-    height: 40px;
-    width: 40px;
-    border-radius: 50px;
-    padding: 5px;
-    margin: 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 50px;
+    width: 35px;
+    margin-top: 50%;
 }
 
 
@@ -168,7 +172,23 @@ caption
 
 #nextArrow
 {
-        z-index: 10;
+    z-index: 10;
+}
+
+.ileft
+{
+    border-radius: 0 15px 15px 0;
+    padding-top: 25%;
+    padding-left: 1px;
+    font-size: 2em;
+}
+
+.iright
+{
+    border-radius: 15px 0 0 15px;
+    padding-top: 25%;
+    padding-left: 6px;
+    font-size: 2em;
 }
 
 /**********infoStation**********/

@@ -37,7 +37,7 @@ $(document).ready(function () { //Quand la page est chargé
         started = false;
     });
     ///////////////////////////////////////////
-    //retire droit ecran mobile
+    //retire doigt ecran mobile
     //$(this).bind('touchend', moveEnd);
 
 
@@ -54,8 +54,8 @@ $(document).ready(function () { //Quand la page est chargé
         }
     });
 
-    //////////////////////////////////////////////////
-    //Mvnt droit sur ecran
+    ////////////////////////////////////////////////////////////////////
+    //Mvnt doigt sur ecran
     //canvas.bind('touchmove', move(e));
 
 
@@ -87,14 +87,12 @@ $(document).ready(function () { //Quand la page est chargé
 
     // Bouton Reset :
     $("#reset").click(function () {
-        // Clear canvas :
         clear_canvas();
-
     });
 
     // Bouton Save :
     $('#formReservation').submit(function () {
-        /*
+        /*sauvegarde image a voir
         var canvas_tmp = document.getElementById("signature");
         window.location = canvas_tmp.toDataURL("imgs/canvas/png");
         */

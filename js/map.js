@@ -65,52 +65,43 @@ function initMap() {
                 station.status = "Fermée";
             }
 
-            var simpleName = /^[0-9]* {1}-{1} {1}/;
+            //On supprime le code Station qui n'est pas un Id unique
+            var simpleName = /^[0-9]* ?-{1} {1}/;
             station.name = station.name.replace(simpleName, "");
 
+            marker.addListener('click', showStationInfos);
+            markers.push(marker);
 
             function showStationInfos() {
-                //map
-                map.stationSelect.name = station.name;
-                map.stationSelect.address = station.address;
+                if (station.available_bikes > 0) {
+                    //map
+                    map.stationSelect.name = station.name;
+                    console.log(map.stationSelect.name);
+                    map.stationSelect.address = station.address;
 
-                //aside
-                $('#infoReservation').css('display', 'none');
-                //$('#infoStation').remove();
+                    //aside
+                    $('#infoReservation').css('display', 'none');
+                    //$('#infoStation').remove();
 
-                $('#map').removeClass('col s12').addClass('col s12 l8');
+                    $('#map').removeClass('col s12').addClass('col s12 l8');
 
-                $('#infoStation').css('display', 'block');
+                    $('#infoStation').css('display', 'block');
 
-                $('#stationName').text(station.name);
-                $('#statusStation').text(station.status);
-                $('#indicAdress').text(station.address);
-                $('#availableBike').text(station.available_bikes);
-
-                //Reservation
-                $('#btnSelect').click(function () {
-                    if (sessionStorage.getItem('reservation')) {
-
-                        /////////////Modal////////////////////
-                        $('#gotReservation').modal();
-
-                    } else {
-                        initReservation();
-                    }
-
-                });
+                    $('#stationName').text(station.name);
+                    $('#statusStation').text(station.status);
+                    $('#indicAdress').text(station.address);
+                    $('#availableBike').text(station.available_bikes);
 
 
 
 
-
-
+                } else {
+                    /////////////Modal////////////////////
+                    $('#noBike').modal();
+                    //window.location = ("./index.html");
+                }
 
             }
-
-            marker.addListener('click', showStationInfos);
-
-            markers.push(marker);
 
         });
 
@@ -120,6 +111,28 @@ function initMap() {
 
         //Regroupements des marqueurs du tableau markers
         var markerCluster = new MarkerClusterer(map, markers, options);
+
+
+        //////////////////////////////////////////////////avant ds showStation
+
+        //Reservation
+        $('#btnSelect').click(function () {
+
+            if (sessionStorage.getItem('reservation')) {
+
+                /////////////Modal////////////////////
+                $('#gotReservation').modal();
+
+            } else {
+                initReservation();
+            }
+
+        });
+
+        //////////////////////////////////////////////////////////////////////////
+
+
+
 
     });
 

@@ -59,52 +59,58 @@
         <section id="helpSection" class="row">
 
             <div id="smHelp" class="visible-xs-block visible-sm-block ">
-                <div class="border z-depth-4">
+                <div class="z-depth-4">
                     <h2>&Eacute;TAPE 1:</h2>
                     <p>Cliquer sur un ensemble de stations pour zoomer sur celui-ci.</p>
                 </div>
-                <div class="border z-depth-4">
+                <div class="z-depth-4">
                     <h2>&Eacute;TAPE 2:</h2>
                     <p>Cliquer sur une station qui dispose d'un vélo libre.</p>
                 </div>
-                <div class="border z-depth-4">
+                <div class="z-depth-4">
                     <h2>&Eacute;TAPE 3:</h2>
                     <p>Cliquer sur "Réserver"</p>
                 </div>
-
-
             </div>
 
             <div id="divHelp" class="hidden-xs hidden-sm col-md-12 ">
                 <ul class="helpImg">
+                    <li id="slide4" class="imgSlider">
+                        <img class="imgElt z-depth-4" src="imgs/step4.png" alt="">
+                        <div class="txtSlider  bg-white z-depth-4">
+                            <h2>&Eacute;TAPE 4:</h2>
+                            <p>Renseignez vos NOM et PR&Eacute;NOM. </p>
+                            <p>Cliquez sur réserver.</p>
+                            <p>Votre réservation est validé !</p>
+                        </div>
+                    </li>
                     <li id="slide3" class="imgSlider">
                         <img class="imgElt z-depth-4" src="imgs/step3.png" alt="">
-                        <div class="txtSlider  bg-primary z-depth-4">
+                        <div class="txtSlider  bg-white z-depth-4">
                             <h2>&Eacute;TAPE 3:</h2>
-                            <p>Cliquer sur "Reserver"</p>
+                            <p>Cliquez sur "S&Eacute;LECTIONNER"</p>
                         </div>
-
                     </li>
+
                     <li id="slide2" class="imgSlider">
                         <img class="imgElt z-depth-4" src="imgs/step2.png" alt="">
-                        <div class="txtSlider  bg-primary z-depth-4">
+                        <div class="txtSlider  bg-white z-depth-4">
                             <h2>&Eacute;TAPE 2:</h2>
-                            <p>Cliquer sur une station qui dispose d'un vélo libre.</p>
+                            <p>Cliquez sur une station qui dispose d'un vélo libre.</p>
                         </div>
                     </li>
                     <li id="slide1" class="imgSlider">
                         <img class="imgElt z-depth-4" src="imgs/step1.png" alt="">
-                        <div class="txtSlider  bg-primary z-depth-4">
+                        <div class="txtSlider  bg-white z-depth-4">
                             <h2>&Eacute;TAPE 1:</h2>
-                            <p>Cliquer sur un ensemble de stations pour zoomer sur celui-ci.</p>
+                            <p>Cliquez sur un ensemble de stations pour zoomer sur celui-ci.</p>
                         </div>
                     </li>
-
                 </ul>
 
                 <div id="arrow">
-                    <div id="prevArrow"><i class="fas fa-angle-double-left fa-2x bgCircle z-depth-4 " aria-hidden="true"></i></div>
-                    <div id="nextArrow"><i class="fas fa-angle-double-right fa-2x bgCircle z-depth-4" aria-hidden="true"></i></div>
+                    <div id="prevArrow"><i class="glyphicon glyphicon-chevron-left bgCircle z-depth-4 ileft" aria-hidden="true"></i></div>
+                    <div id="nextArrow"><i class="glyphicon glyphicon-chevron-right bgCircle z-depth-4 iright" aria-hidden="true"></i></div>
                 </div>
             </div>
 
@@ -121,7 +127,7 @@
 
             <aside id="infoReservation" class="col s12 l4">
                 <!-- class="col-xs-12 col-md-4" -->
-                <div id="infoR" class="bg-primary border z-depth-4">
+                <div id="infoR" class="bg-white   z-depth-4">
                     <h3 style="text-align:center;">R&Eacute;SERVATION:</h3>
                     <form id="formReservation">
                         <input type="text" id="name" name="name" placeholder="Votre Nom" title="nom" class="inputReservation" required><br>
@@ -138,9 +144,9 @@
             </aside>
 
             <aside id="infoStation" class="col-xs-12 col-md-4">
-                <div id="info" class="bg-primary border z-depth-4">
-                    <h3 style="color:white; text-align:center;">INFORMATION STATION:</h3><br>
-                    <h4 class="border" id="stationName"></h4>
+                <div id="info" class="bg-white   z-depth-4">
+                    <h3 style="text-align:center;">INFORMATION STATION:</h3><br>
+                    <h4 class=" " id="stationName"></h4>
                     <h5>Localisation: <span id="indicAdress"></span></h5><br>
                     <h5>Status: <span id="statusStation"></span></h5><br>
                     <h5>Vélo(s) disponible: <span id="availableBike"></span></h5><br>
@@ -198,6 +204,40 @@
 
 
     <!-- Modal -->
+    <!-- Modal Pas de vélo -->
+    <div id="noBike" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Aucun vélo disponible dans cette station</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Pas de signature -->
+    <div id="signReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Veuillez signer le formulaire de reservation s.v.p. </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal Réservation en cours -->
     <div id="gotReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -216,7 +256,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Modal Réservation annulé -->
     <div id="annulReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -229,13 +269,13 @@
                     <p>Réservation annulée !!!</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                 </div>
             </div>
         </div>
     </div>
 
-    
+
     <!-- Modal Réservation expiré -->
     <div id="expiReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -248,7 +288,7 @@
                     <p>Votre réservation a expiré</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <!-- <button id="expiClose" type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                 </div>
             </div>
         </div>
