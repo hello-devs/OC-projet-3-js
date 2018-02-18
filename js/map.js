@@ -65,14 +65,18 @@ function initMap() {
                 station.status = "Fermée";
             }
 
-            var simpleName = /^[0-9]* {1}-{1} {1}/;
+            //On supprime le code Station qui n'est pas un Id unique
+            var simpleName = /^[0-9]* ?-{1} {1}/;
             station.name = station.name.replace(simpleName, "");
 
+            marker.addListener('click', showStationInfos);
+            markers.push(marker);
 
             function showStationInfos() {
                 if (station.available_bikes > 0) {
                     //map
                     map.stationSelect.name = station.name;
+                    console.log(map.stationSelect.name);
                     map.stationSelect.address = station.address;
 
                     //aside
@@ -88,24 +92,7 @@ function initMap() {
                     $('#indicAdress').text(station.address);
                     $('#availableBike').text(station.available_bikes);
 
-                    //Reservation
-                    $('#btnSelect').click(function () {
 
-
-
-                        if (sessionStorage.getItem('reservation')) {
-
-                            /////////////Modal////////////////////
-                            $('#gotReservation').modal();
-
-                        } else {
-                            initReservation();
-                        }
-
-
-
-
-                    });
 
 
                 } else {
@@ -114,14 +101,7 @@ function initMap() {
                     //window.location = ("./index.html");
                 }
 
-
-
-
             }
-
-            marker.addListener('click', showStationInfos);
-
-            markers.push(marker);
 
         });
 
@@ -131,6 +111,28 @@ function initMap() {
 
         //Regroupements des marqueurs du tableau markers
         var markerCluster = new MarkerClusterer(map, markers, options);
+
+
+        //////////////////////////////////////////////////avant ds showStation
+
+        //Reservation
+        $('#btnSelect').click(function () {
+
+            if (sessionStorage.getItem('reservation')) {
+
+                /////////////Modal////////////////////
+                $('#gotReservation').modal();
+
+            } else {
+                initReservation();
+            }
+
+        });
+
+        //////////////////////////////////////////////////////////////////////////
+
+
+
 
     });
 
