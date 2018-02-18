@@ -106,7 +106,7 @@ function delaiReservation() {
     var dateReservation = new Date(reservation.dateReservation);
     //console.log("dateReservation: " + dateReservation);
 
-    reservation.limit = new Date(dateReservation.setMinutes(dateReservation.getMinutes() + 1)); //1 Pour test
+    reservation.limit = new Date(dateReservation.setMinutes(dateReservation.getMinutes() + 20)); //1 Pour test
     //console.log("reservation.limit :" + reservation.limit);
     //console.log("now: " + Date());
 
