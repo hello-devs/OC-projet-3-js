@@ -124,7 +124,7 @@ function initMap() {
                 $('#gotReservation').modal();
 
             } else {
-                initReservation();
+                showReservationForm();
             }
 
         });
