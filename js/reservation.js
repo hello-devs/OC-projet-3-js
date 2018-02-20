@@ -3,7 +3,6 @@ var reservation = {};
 //On vérifie la présence d'une réservation à la connection
 checkStatutReservation();
 
-//
 function initReservation() {
     reservation = {
         stationName: map.stationSelect.name,
@@ -16,7 +15,6 @@ function initReservation() {
         dlcSec: null,*/
     };
 }
-
 
 function checkStatutReservation() {
     if (sessionStorage.getItem('reservation')) {
@@ -69,17 +67,13 @@ function showReservationForm() {
 
 }
 
-
 function showFooterReservation() {
 
     var reservation_json = sessionStorage.getItem('reservation');
     reservation = JSON.parse(reservation_json);
-    //console.log(reservation);
-
 
     //Validité de la reservation
     delaiReservation();
-
 
     //Affichage info footer
     $('#noReservationFooter').css('display', 'none');
@@ -101,7 +95,6 @@ function showFooterReservation() {
         setTimeout(function () {
             window.location = ("./index.html");
         }, 2000);
-
 
     });
 
@@ -174,13 +167,11 @@ function calcMinSec() {
 
 }
 
-
-//supprimer la reservation
+//Supprimer la réservation
 function expire() {
 
     clearInterval(reservation.actualisationTps);
     reservation = {};
-
 
     sessionStorage.clear();
     console.log(reservation);
