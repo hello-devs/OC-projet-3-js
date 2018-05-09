@@ -1,7 +1,3 @@
-//Le canevas sera utilisé dans un contexte 2 dimensions
-
-//function ecouteCanvas () {
-
 
 $(document).ready(function () { //Quand la page est chargé
 
