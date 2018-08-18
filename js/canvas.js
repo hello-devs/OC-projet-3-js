@@ -63,8 +63,8 @@ $(document).ready(function () { //Quand la page est chargé
             context.beginPath();
             context.moveTo(cursorX, cursorY);
             started = true;
-            reservation.sign = true;
-            console.log(reservation); //test
+            resa.reservation.sign = true;
+            console.log(resa); //test
         }
         // Sinon je dessine
         else {
@@ -97,4 +97,4 @@ $(document).ready(function () { //Quand la page est chargé
 
 });
 
-//}
+
