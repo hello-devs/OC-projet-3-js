@@ -81,7 +81,7 @@ class Mapp {
 
                     $('#infoStation').css('display', 'block');
 
-                    $('#stationName').text(station.name);
+                    $('#stationName').text(marker.title);
                     $('#statusStation').text(station.status);
                     $('#indicAdress').text(station.address);
                     $('#availableBike').text(station.available_bikes);
