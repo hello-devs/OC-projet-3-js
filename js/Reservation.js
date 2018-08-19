@@ -163,7 +163,7 @@ class Reservation {
 
         } else {
             console.log("expiré");
-            this.expire();
+            resa.expire();
             /////////////Modal////////////////////
             $('#expiReservation').modal();
             //////////////////////////////////////////////Solution temporaire:
