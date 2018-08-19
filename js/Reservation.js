@@ -2,20 +2,23 @@ class Reservation {
 
     constructor() {
         this.reservation = {};
-    };
-
+    }
 
     initReservation() {
-        this.reservation = {
-            stationName: map.stationSelect.name,
-            address: map.stationSelect.address,
-            client: $('#name').val() + " " + $('#firstname').val(),
-            dateReservation: new Date(),
-            sign: this.sign
-            /*limit: null,
-            dlcMin: null,
-            dlcSec: null,*/
-        };
+        /*this.reservation = {
+         stationName: map.stationSelect.name,
+         address: map.stationSelect.address,
+         client: $('#name').val() + " " + $('#firstname').val(),
+         dateReservation: new Date(),
+         sign: this.sign
+         /*limit: null,
+         dlcMin: null,
+         dlcSec: null,*/
+
+        this.reservation.stationName = map.stationSelect.name;
+        this.reservation.address = map.stationSelect.address;
+        this.reservation.client = $('#name').val() + " " + $('#firstname').val();
+        this.reservation.dateReservation = new Date();
     }
 
     checkStatutReservation() {
