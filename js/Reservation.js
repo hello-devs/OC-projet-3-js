@@ -118,7 +118,37 @@ class Reservation {
                 console.log(this.reservation);
                 //Actualiser ttes les sec
 
-                this.reservation.actualisationTps = setInterval(this.calcMinSec, 1000);
+                this.reservation.actualisationTps = setInterval(() => {
+                    
+                    
+                    
+                    console.log(this);
+                    var now = new Date();
+
+                    if (now.getTime() < this.reservation.limit.getTime()) {
+                        //*console.log("Réservation valide");
+                        var dlc = (this.reservation.limit - new Date());
+                        //nombre de minute(s) restante(s)
+                        this.reservation.dlcMin = parseInt(dlc / (60 * 1000));
+                        //nombre de seconde(s) restante(s)
+                        this.reservation.dlcSec = parseInt(dlc % (60 * 1000) / 1000);
+
+                        $('#footerDlcMin').text(this.reservation.dlcMin);
+                        $('#footerDlcSec').text(this.reservation.dlcSec);
+
+                    } else {
+                        console.log("expiré");
+                        resa.expire();
+                        /////////////Modal////////////////////
+                        $('#expiReservation').modal();
+                        //////////////////////////////////////////////Solution temporaire:
+                        setTimeout(function () {
+                            window.location = ("./index.html");
+                        }, 2000);
+
+                    }
+
+                }, 1000);
             } else {
                 console.log("expiré");
                 console.log(this.reservation); //test
@@ -149,12 +179,13 @@ class Reservation {
 
     }
 
+    // probleme portee this
     calcMinSec() {
-
+        console.log(this);
         var now = new Date();
 
         if (now.getTime() < this.reservation.limit.getTime()) {
-            /*console.log("Réservation valide");*/
+            //console.log("Réservation valide");
             var dlc = (this.reservation.limit - new Date());
             //nombre de minute(s) restante(s)
             this.reservation.dlcMin = parseInt(dlc / (60 * 1000));
@@ -177,6 +208,7 @@ class Reservation {
         }
 
     }
+    
 
     //Supprimer la réservation
     expire() {
