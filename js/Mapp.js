@@ -3,7 +3,7 @@
 //initialisation de la map
 class Mapp {
 
-    constructor () {
+    constructor(reservation) {
 
 
         map = new google.maps.Map(document.getElementById('map'), {
@@ -24,6 +24,8 @@ class Mapp {
                 address: null
             }
         });
+
+        this.reservation = reservation;
 
     }
 
@@ -84,10 +86,25 @@ class Mapp {
                     $('#stationName').text(marker.title);
                     $('#statusStation').text(station.status);
                     $('#indicAdress').text(station.address);
+
+                    //Reservation en cours
+                    if (sessionStorage.getItem('reservation'))
+                    {
+                        console.log('une reservation en cours');
+                        if (this.reservation.reservation.stationName === map.stationSelect.name)
+                        {
+                            console.log('meme station');
+                            station.available_bikes = station.available_bikes - 1;
+                        } else
+                        {
+                            console.log('station differente');
+                        }
+                    }
+
                     $('#availableBike').text(station.available_bikes);
 
                     //Reservation
-                    $('#btnSelect').click(function () {
+                    $('#btnSelect').click(() => {
 
                         if (sessionStorage.getItem('reservation')) {
 
@@ -95,7 +112,7 @@ class Mapp {
                             $('#gotReservation').modal();
 
                         } else {
-                            resa.showReservationForm(station);
+                            this.reservation.showReservationForm(station);
                         }
 
                     });
