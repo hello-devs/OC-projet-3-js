@@ -3,7 +3,7 @@
 //initialisation de la map
 class Mapp {
 
-    initMap() {
+    constructor () {
 
 
         map = new google.maps.Map(document.getElementById('map'), {

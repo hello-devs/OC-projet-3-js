@@ -1,3 +1,5 @@
+/* global resa, map */
+
 class Reservation {
 
     constructor() {
@@ -119,9 +121,6 @@ class Reservation {
                 //Actualiser ttes les sec
 
                 this.reservation.actualisationTps = setInterval(() => {
-                    
-                    
-                    
                     console.log(this);
                     var now = new Date();
 
@@ -153,7 +152,6 @@ class Reservation {
                 console.log("expiré");
                 console.log(this.reservation); //test
                 console.log(this); //test
-                console.log(me); //me
                 this.expire();
                 /////////////Modal////////////////////
                 $('#expiReservation').modal();
@@ -208,7 +206,6 @@ class Reservation {
         }
 
     }
-    
 
     //Supprimer la réservation
     expire() {
