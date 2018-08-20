@@ -1,6 +1,6 @@
 //Initialisation du slider
 var sliderElt = new Slider("divHelp", "prevArrow", "nextArrow");
-
+var canvas = new Canvas;
 //Gestion des reservation
 var resa = new Reservation;
 //On vérifie la présence d'une réservation à la connection

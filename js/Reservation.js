@@ -48,11 +48,11 @@ class Reservation {
         this.reservation.sign = false;
 
         // Bouton Reset :
-        $("#reset").click(function () {
+        $("#reset").click(()=> {
             this.reservation.sign = false;
         });
 
-        $('#formReservation').submit(function (e) {
+        $('#formReservation').submit((e)=> {
             if (!this.reservation.sign) {
                 /////////////Modal////////////////////
                 $('#signReservation').modal();
@@ -69,7 +69,7 @@ class Reservation {
                 this.showFooterReservation();
             }
             e.preventDefault(); // Annulation de l'envoi des données
-        }.bind(this));
+        });
     }
 
     showFooterReservation() {
@@ -91,7 +91,7 @@ class Reservation {
 
 
         //Annuler reservation
-        $('.cancelReservation').click(function () {
+        $('.cancelReservation').click(()=> {
             console.log(this.reservation); //test
             console.log(this); //test
             resa.expire();
