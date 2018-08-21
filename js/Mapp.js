@@ -53,7 +53,28 @@ class Mapp {
                 icon: image
             });
 
-            if (station.available_bikes < 1) {
+            //On supprime le code Station qui n'est pas un Id unique
+            var simpleName = /^\#[0-9]* ?-{1} {1}/;
+            marker.title = station.name.replace(simpleName, "");
+
+            //Reservation en cours icone rouge si plus de vélo
+            if (sessionStorage.getItem('reservation'))
+            {
+                console.log('une reservation en cours');
+                if (this.reservation.reservation.stationName === marker.title)
+                {
+                    console.log('meme station');
+                    if (station.available_bikes === 1)
+                    {
+                        marker.icon.url = 'imgs/no-cycle.svg';
+                    }
+                }
+            }
+
+
+
+            if (station.available_bikes < 1)
+            {
                 marker.icon.url = 'imgs/no-cycle.svg';
             }
 
@@ -63,9 +84,7 @@ class Mapp {
                 station.status = "Fermée";
             }
 
-            //On supprime le code Station qui n'est pas un Id unique
-            var simpleName = /^\#[0-9]* ?-{1} {1}/;
-            marker.title = station.name.replace(simpleName, "");
+
             markers.push(marker);
             marker.addListener('click', () => {
                 if (station.available_bikes > 0) {
@@ -87,7 +106,8 @@ class Mapp {
                     $('#statusStation').text(station.status);
                     $('#indicAdress').text(station.address);
 
-                    //Reservation en cours
+                    //*
+                    //Reservation en cours -1 vélo
                     if (sessionStorage.getItem('reservation'))
                     {
                         console.log('une reservation en cours');
@@ -100,6 +120,7 @@ class Mapp {
                             console.log('station differente');
                         }
                     }
+                    //*/          
 
                     $('#availableBike').text(station.available_bikes);
 
@@ -112,7 +133,7 @@ class Mapp {
                             $('#gotReservation').modal();
 
                         } else {
-                            this.reservation.showReservationForm(station,this.map);
+                            this.reservation.showReservationForm(station, this.map);
                         }
 
                     });
