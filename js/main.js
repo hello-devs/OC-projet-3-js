@@ -7,6 +7,8 @@ var resa = new Reservation;
 resa.checkStatutReservation();
 console.log(resa);
 
+
+
 $(document).ready(function () { //Quand la page est chargé
 
     //initialisation de la Carte
