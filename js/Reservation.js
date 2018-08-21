@@ -7,16 +7,7 @@ class Reservation {
     }
 
     initReservation(map) {
-        /*this.reservation = {
-         stationName: map.stationSelect.name,
-         address: map.stationSelect.address,
-         client: $('#name').val() + " " + $('#firstname').val(),
-         dateReservation: new Date(),
-         sign: this.sign
-         /*limit: null,
-         dlcMin: null,
-         dlcSec: null,*/
-
+        
         this.reservation.stationName = map.stationSelect.name;
         this.reservation.address = map.stationSelect.address;
         this.reservation.client = $('#name').val() + " " + $('#firstname').val();
@@ -44,7 +35,7 @@ class Reservation {
         $('#infoReservation').css('display', 'block');
         $('#name').focus();
 
-        //Indique que le formulaire n'a pas été signé de base
+        //Indique que le formulaire n'a pas Ã©tÃ© signÃ© de base
         this.reservation.sign = false;
 
         // Bouton Reset :
@@ -58,9 +49,7 @@ class Reservation {
                 $('#signReservation').modal();
             } else {
                 //Recuperation en variable global
-                this.initReservation(map);  //station /**/**/
-                console.log(this.reservation);
-
+                this.initReservation(map);  //station 
                 this.reservationStorage();
 
                 $('#infoReservation').css('display', 'none');
@@ -68,17 +57,16 @@ class Reservation {
 
                 this.showFooterReservation();
             }
-            e.preventDefault(); // Annulation de l'envoi des données
+            e.preventDefault(); // Annulation de l'envoi des donnÃ©es
         });
     }
 
     showFooterReservation() {
-
-        console.log(this.reservation); //test
+        
         var reservation_json = sessionStorage.getItem('reservation');
         this.reservation = JSON.parse(reservation_json);
 
-        //Validité de la reservation
+        //ValiditÃ© de la reservation
         this.delaiReservation();
 
         //Affichage info footer
@@ -92,8 +80,7 @@ class Reservation {
 
         //Annuler reservation
         $('.cancelReservation').click(()=> {
-            console.log(this.reservation); //test
-            console.log(this); //test
+
             this.expire();
             /////////////Modal////////////////////
             $('#annulReservation').modal();
@@ -117,15 +104,13 @@ class Reservation {
 
             if (now.getTime() < this.reservation.limit.getTime()) {
                 console.log("Réservation valide");
-                console.log(this.reservation);
+                
                 //Actualiser ttes les sec
-
                 this.reservation.actualisationTps = setInterval(() => {
                     console.log(this);
                     var now = new Date();
 
                     if (now.getTime() < this.reservation.limit.getTime()) {
-                        //*console.log("Réservation valide");
                         var dlc = (this.reservation.limit - new Date());
                         //nombre de minute(s) restante(s)
                         this.reservation.dlcMin = parseInt(dlc / (60 * 1000));
@@ -149,9 +134,7 @@ class Reservation {
 
                 }, 1000);
             } else {
-                console.log("expiré");
-                console.log(this.reservation); //test
-                console.log(this); //test
+                console.log("expirÃ©");
                 this.expire();
                 /////////////Modal////////////////////
                 $('#expiReservation').modal();
@@ -179,11 +162,10 @@ class Reservation {
 
     // probleme portee this
     calcMinSec() {
-        console.log(this);
         var now = new Date();
 
         if (now.getTime() < this.reservation.limit.getTime()) {
-            //console.log("Réservation valide");
+            //console.log("RÃ©servation valide");
             var dlc = (this.reservation.limit - new Date());
             //nombre de minute(s) restante(s)
             this.reservation.dlcMin = parseInt(dlc / (60 * 1000));
@@ -194,7 +176,7 @@ class Reservation {
             $('#footerDlcSec').text(this.reservation.dlcSec);
 
         } else {
-            console.log("expiré");
+            console.log("expirÃ©");
             this.expire();
             /////////////Modal////////////////////
             $('#expiReservation').modal();
@@ -207,18 +189,11 @@ class Reservation {
 
     }
 
-    //Supprimer la réservation
+    //Supprimer la rÃ©servation
     expire() {
-
-        console.log(this.reservation); //test
-        console.log(this.reservation); //test
-
         clearInterval(this.reservation.actualisationTps);
         this.reservation = {};
-
         sessionStorage.clear();
-        console.log(this.reservation);
-        console.log(this.reservation);
         //Changement Info footer
         $('#reservationFooter').css('display', 'none');
         $('#noReservationFooter').css('display', 'block');
