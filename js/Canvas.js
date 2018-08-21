@@ -5,7 +5,6 @@
  */
 
 
-/* global resa */
 
 class Canvas
 {
@@ -13,15 +12,14 @@ class Canvas
      * 
      * @returns {Canvas}
      */
-    constructor()
+    constructor(reservation)
     {
+        this.reservation = reservation;
         this.painting = false;
         this.started = false;
         this.canvas = $('#signature');
         this.cursorX;
         this.cursorY;
-
-
         this.context = this.canvas[0].getContext('2d');
         this.context.lineJoin = 'round';
         this.context.lineCap = 'round';
@@ -33,7 +31,6 @@ class Canvas
         this.canvas.mouseup(this.moveEnd.bind(this));
         this.canvas[0].addEventListener('touchend', this.moveEnd.bind(this));
 
-
         this.canvas.mousemove(this.move.bind(this));
         this.canvas[0].addEventListener('touchmove', this.move.bind(this));
 
@@ -44,14 +41,12 @@ class Canvas
 
         // Bouton Save :
         $('#formReservation').submit(() => {
-            /*sauvegarde image a voir
+            /*sauvegarde image a travailler
              var canvas_tmp = document.getElementById("signature");
              window.location = canvas_tmp.toDataURL("imgs/canvas/png");
              */
             this.clear_canvas();
         });
-
-        console.log(this);
     }
 
     /**
@@ -79,10 +74,6 @@ class Canvas
         // Coordonnées de la souris :
         this.cursorX = (pageX - e.currentTarget.offsetLeft);
         this.cursorY = (pageY - e.currentTarget.offsetTop);
-
-        console.log(pageX, e.currentTarget.offsetLeft);
-        console.log(pageY, e.currentTarget.offsetTop);
-        console.log(this.cursorX, this.cursorY);
     }
 
     /**
@@ -140,8 +131,7 @@ class Canvas
             this.context.beginPath();
             this.context.moveTo(this.cursorX, this.cursorY);
             this.started = true;
-            resa.reservation.sign = true;
-            console.log(resa); //test
+            this.reservation.reservation.sign = true;
         }
         // Sinon je dessine
         else

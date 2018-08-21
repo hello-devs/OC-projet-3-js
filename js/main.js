@@ -1,12 +1,10 @@
 //Initialisation du slider
 var sliderElt = new Slider("divHelp", "prevArrow", "nextArrow");
-var canvas = new Canvas;
 //Gestion des reservation
 var resa = new Reservation;
 //On vérifie la présence d'une réservation à la connection
 resa.checkStatutReservation();
-console.log(resa);
-
+var canvas = new Canvas(resa);
 
 
 $(document).ready(function () { //Quand la page est chargé

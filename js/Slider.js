@@ -1,32 +1,29 @@
 class Slider {
 
-
-
     constructor(idDivSlider, idPrevArrow, idNextArrow) {
-        var self = this;
         this.slideActif = 0;
         this.sliderNum = 1;
         var idDivSlider = document.getElementById(idDivSlider);
         this.indexSlide = idDivSlider.querySelectorAll("img").length;
 
 
-        document.addEventListener('keydown', function (e) {
+        document.addEventListener('keydown', (e) => {
             if (e.keyCode === 39) {
-                self.moveRight();
+                this.moveRight();
             } else if (e.keyCode === 37) {
-                self.moveLeft();
+                this.moveLeft();
             }
         });
 
         //Clic sur fleche slider
         //fleche gauche syntaxe javascript:
         var idPrevArrow = document.getElementById(idPrevArrow);
-        idPrevArrow.addEventListener("click", function () {
-            self.moveLeft();
+        idPrevArrow.addEventListener("click", () => {
+            this.moveLeft();
         });
         //fleche droite syntaxe jquery:
-        $('#' + idNextArrow).click(function () {
-            self.moveRight();
+        $('#' + idNextArrow).click(() => {
+            this.moveRight();
         });
 
     }

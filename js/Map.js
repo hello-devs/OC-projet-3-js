@@ -90,7 +90,6 @@ class Map {
                 if (station.available_bikes > 0) {
                     //map
                     this.map.stationSelect.name = marker.title;
-                    console.log(this.map.stationSelect.name);
                     this.map.stationSelect.address = station.address;
 
 
