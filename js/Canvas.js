@@ -28,13 +28,14 @@ class Canvas
 
         /*Events*/
         this.canvas.mousedown(this.moveStart.bind(this));
-
+        this.canvas[0].addEventListener('touchstart', this.moveStart.bind(this));
 
         this.canvas.mouseup(this.moveEnd.bind(this));
+        this.canvas[0].addEventListener('touchend', this.moveEnd.bind(this));
 
 
         this.canvas.mousemove(this.move.bind(this));
-        
+        this.canvas[0].addEventListener('touchmove', this.move.bind(this));
 
 
         $("#reset").click(() => {
@@ -55,15 +56,33 @@ class Canvas
 
     /**
      * @description Début du dessin au clic sur le canvas
-     * @param {type} e
+     * @param {event} e
      * @returns {undefined}
      */
     moveStart(e)
     {
+        console.log(e);
         this.painting = true;
+
+        if (e.changedTouches)
+        {
+            console.log('touché');
+            var pageX = e.changedTouches[0].pageX;
+            var pageY = e.changedTouches[0].pageY;
+            e.preventDefault();
+        } else
+        {
+            var pageX = e.pageX;
+            var pageY = e.pageY;
+        }
+
         // Coordonnées de la souris :
-        this.cursorX = (e.pageX - e.currentTarget.offsetLeft);
-        this.cursorY = (e.pageY - e.currentTarget.offsetTop);
+        this.cursorX = (pageX - e.currentTarget.offsetLeft);
+        this.cursorY = (pageY - e.currentTarget.offsetTop);
+
+        console.log(pageX, e.currentTarget.offsetLeft);
+        console.log(pageY, e.currentTarget.offsetTop);
+        console.log(this.cursorX, this.cursorY);
     }
 
     /**
@@ -86,9 +105,21 @@ class Canvas
         // Si je suis en train de dessiner (click souris enfoncé) :
         if (this.painting)
         {
+            if (e.changedTouches)
+            {
+                console.log('touché');
+                var pageX = e.changedTouches[0].pageX;
+                var pageY = e.changedTouches[0].pageY;
+                e.preventDefault();
+            } else
+            {
+                var pageX = e.pageX;
+                var pageY = e.pageY;
+            }
+
             // Set Coordonnées de la souris :
-            this.cursorX = (e.pageX - e.currentTarget.offsetLeft) - 5; // 5 = décalage du curseur
-            this.cursorY = (e.pageY - e.currentTarget.offsetTop) - 5;
+            this.cursorX = (pageX - e.currentTarget.offsetLeft) - 5; // 5 = décalage du curseur
+            this.cursorY = (pageY - e.currentTarget.offsetTop) - 5;
 
             // Dessine une ligne :
             this.drawLine();
