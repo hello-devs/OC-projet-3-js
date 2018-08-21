@@ -6,7 +6,7 @@ class Mapp {
     constructor(reservation) {
 
 
-        map = new google.maps.Map(document.getElementById('map'), {
+        this.map = new google.maps.Map(document.getElementById('map'), {
             center: {
                 lat: 45.760500,
                 lng: 4.84765
@@ -48,7 +48,7 @@ class Mapp {
             var marker = new google.maps.Marker({
                 position: station.position,
                 title: station.name,
-                map: map,
+                map: this.map,
                 animation: google.maps.Animation.DROP,
                 icon: image
             });
@@ -70,9 +70,9 @@ class Mapp {
             marker.addListener('click', () => {
                 if (station.available_bikes > 0) {
                     //map
-                    map.stationSelect.name = marker.title;
-                    console.log(map.stationSelect.name);
-                    map.stationSelect.address = station.address;
+                    this.map.stationSelect.name = marker.title;
+                    console.log(this.map.stationSelect.name);
+                    this.map.stationSelect.address = station.address;
 
 
                     //aside
@@ -91,7 +91,7 @@ class Mapp {
                     if (sessionStorage.getItem('reservation'))
                     {
                         console.log('une reservation en cours');
-                        if (this.reservation.reservation.stationName === map.stationSelect.name)
+                        if (this.reservation.reservation.stationName === this.map.stationSelect.name)
                         {
                             console.log('meme station');
                             station.available_bikes = station.available_bikes - 1;
@@ -112,7 +112,7 @@ class Mapp {
                             $('#gotReservation').modal();
 
                         } else {
-                            this.reservation.showReservationForm(station);
+                            this.reservation.showReservationForm(station,this.map);
                         }
 
                     });
@@ -133,7 +133,7 @@ class Mapp {
             imagePath: 'imgs/markerclusterer/m'
         };
         //Regroupements des marqueurs du tableau markers
-        new MarkerClusterer(map, markers, options);
+        new MarkerClusterer(this.map, markers, options);
     }
 
 }
