@@ -6,7 +6,7 @@ class Reservation {
         this.reservation = {};
     }
 
-    initReservation() {
+    initReservation(map) {
         /*this.reservation = {
          stationName: map.stationSelect.name,
          address: map.stationSelect.address,
@@ -38,7 +38,7 @@ class Reservation {
         sessionStorage.setItem('reservation', reservation_json);
     }
 
-    showReservationForm(station) {
+    showReservationForm(station,map) {
         //Remplace les infos station par le formulaire de reservation
         $('#infoStation').css('display', 'none');
         $('#infoReservation').css('display', 'block');
@@ -58,7 +58,7 @@ class Reservation {
                 $('#signReservation').modal();
             } else {
                 //Recuperation en variable global
-                this.initReservation();  //station /**/**/
+                this.initReservation(map);  //station /**/**/
                 console.log(this.reservation);
 
                 this.reservationStorage();
