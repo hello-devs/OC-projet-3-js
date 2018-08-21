@@ -4,10 +4,9 @@
 <head>
     <title>Location de vélo: Ville de Lyon</title>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg" href="imgs/silhouettevelo.svg" />
+    <link rel="icon" type="image/svg" href="imgs/hvelo2.svg" />
 
-    <!--     Materialize css     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">-->
+    <!--     Materialize css     -->
     <link rel="stylesheet" href="materialize/materializesansmodal.min.css">
 
     <!--     Bootstrap css     -->
@@ -16,7 +15,7 @@
 
 
     <!--     css     -->
-    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
     <!--      Mobile     -->
@@ -30,7 +29,7 @@
     <meta name="description" content="Site de location de vélo de la ville de lyon" />
 
     <!-- Twitter Card data -->
-    <meta name="twitter:card" value="Site de location de vélo de la ville de lyon">
+    <meta name="twitter:card" content="Site de location de vélo de la ville de lyon">
 
     <!-- Open Graph data -->
     <meta property="og:title" content="Location de vélo à Lyon" />
@@ -54,7 +53,7 @@
 
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
 
         <section id="helpSection" class="row">
 
@@ -133,7 +132,7 @@
                         <input type="text" id="name" name="name" placeholder="Votre Nom" title="nom" class="inputReservation" required><br>
                         <input type="text" id="firstname" name="firstname" placeholder="Votre Prénom" title="prenom" class="inputReservation" required><br>
                         <div>
-                            <canvas id="signature" width="200px" height="200px" class="border">Votre navigateurne ere pas cette fonctionnalité.</canvas>
+                            <canvas id="signature" width="200" height="200" class="border">Votre navigateurne ere pas cette fonctionnalité.</canvas>
                         </div>
                         <div>
                             <input type="submit" value="Réserver">
@@ -196,7 +195,7 @@
                     </tr>
 
                 </table>
-                <button id="" class="butn cancelReservation" title="annuler reservation">Annuler la reservation</button>
+                <button class="butn cancelReservation" title="annuler reservation">Annuler la reservation</button>
             </div>
 
         </footer>
@@ -230,7 +229,7 @@
                     <h4 class="modal-title" id="myModalLabel">Information:</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Veuillez signer le formulaire de reservation s.v.p. </p>
+                    <p>Veuillez signer le formulaire de réservation s.v.p. </p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -247,7 +246,7 @@
                     <h4 class="modal-title" id="myModalLabel">Information:</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Une réservation déja est en cours.</p>
+                    <p>Une réservation est déjà en cours.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -295,33 +294,27 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-    <!--     script     -->
-    <script type="text/javascript" src="js/ajax.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!--     bootstrap     -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <!--     script jQuery    -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 
     <!--     Appel de l'api map     -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxCpO4uRX3qiHkx9fGFKLyo-BYTZy1SrA&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxCpO4uRX3qiHkx9fGFKLyo-BYTZy1SrA" async defer></script>
+
+
+    <!--     bootstrap     -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--     slider     -->
+    <script type="text/javascript" src="js/Slider.js"></script>
+    <!--     class Map     -->
+    <script type="text/javascript" src="js/Map.js"></script>
     <!--     regroupement de marqueur     -->
     <script type="text/javascript" src="js/markerclusterer.js"></script>
-    <!--     slider     -->
-    <script type="text/javascript" src="js/slider.js"></script>
-    <!--     initialisation de la map     -->
-    <script type="text/javascript" src="js/map.js"></script>
     <!--     canvas     -->
-    <script type="text/javascript" src="js/canvas.js"></script>
-    <!--     reservation     -->
-    <script type="text/javascript" src="js/reservation.js"></script>
+    <script type="text/javascript" src="js/Canvas.js"></script>
+    <!--     class Reservation     -->
+    <script type="text/javascript" src="js/Reservation.js"></script>
+    <!--     main script     -->
+    <script type="text/javascript" src="js/main.js"></script>
 
 
 </body>
