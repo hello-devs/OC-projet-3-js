@@ -12,7 +12,7 @@ console.log(resa);
 $(document).ready(function () { //Quand la page est chargé
 
     //initialisation de la Carte
-    var mapElt = new Mapp(resa);
+    var mapElt = new Map(resa);
 
     //Récupération des infos JCDecaux
     $.getJSON("https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=fe8726ec7799c2b2674986982b9abc32e2ced05a", (datas) => {

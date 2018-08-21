@@ -1,7 +1,7 @@
 /* global google */
 
 //initialisation de la map
-class Mapp {
+class Map {
 
     constructor(reservation) {
 
