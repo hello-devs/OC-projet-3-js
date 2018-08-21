@@ -94,7 +94,7 @@ class Reservation {
         $('.cancelReservation').click(()=> {
             console.log(this.reservation); //test
             console.log(this); //test
-            resa.expire();
+            this.expire();
             /////////////Modal////////////////////
             $('#annulReservation').modal();
             ////////////////////////////////////////Redirection:
@@ -137,7 +137,7 @@ class Reservation {
 
                     } else {
                         console.log("expiré");
-                        resa.expire();
+                        this.expire();
                         /////////////Modal////////////////////
                         $('#expiReservation').modal();
                         //////////////////////////////////////////////Solution temporaire:
@@ -164,7 +164,7 @@ class Reservation {
         } else {
             console.log("expiré");
             //clearInterval(reservation.actualisationTps);
-            resa.expire();
+            this.expire();
             /////////////Modal////////////////////
             $('#expiReservation').modal();
             //////////////////////////////////////////////Solution temporaire:
@@ -195,7 +195,7 @@ class Reservation {
 
         } else {
             console.log("expiré");
-            resa.expire();
+            this.expire();
             /////////////Modal////////////////////
             $('#expiReservation').modal();
             //////////////////////////////////////////////Solution temporaire:
