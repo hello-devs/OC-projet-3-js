@@ -70,9 +70,11 @@ p
 footer
 {
     margin-top: 2em;
+    margin-bottom: 0 !important;
     background-color: grey;
     min-height:  150px;
-    padding-bottom: 1em;
+    padding-bottom: 2em;
+
 }
 
 div#noReservationFooter>h4
@@ -137,7 +139,7 @@ caption
     border-radius: 10px;
     padding: 0;
     height: 200px;
-    border-radius: 10px;
+    border-radius: 5px;
     width: 70%;
 }
 
@@ -233,11 +235,12 @@ caption
     height: 100%;
 }
 
+
 #info
 {
     border-radius: 10px;
     height: 100%;
-    padding: 5px;
+    padding: 1em 3em;
 }
 
 #infoStation
@@ -273,7 +276,7 @@ caption
 {
     border-radius: 10px;
     height: 100%;
-    padding: 5px;
+    padding: 1em 6em;
 }
 
 #infoR form
