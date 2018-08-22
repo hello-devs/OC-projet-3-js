@@ -23,7 +23,7 @@
 
 
     <!--      Ajout de polices en ligne  -->
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
     <!--reseau sociaux-->
     <meta name="description" content="Site de location de vélo de la ville de lyon" />
@@ -118,7 +118,7 @@
 
         <section id="resa" class="row ">
 
-
+            <h2 style="margin-bottom: -1em;padding-bottom: 0;">Réservez ici...</h2>
             <div id="map" class="col s12 z-depth-4">
 
             </div>
@@ -127,7 +127,7 @@
             <aside id="infoReservation" class="col s12 l4">
                 <!-- class="col-xs-12 col-md-4" -->
                 <div id="infoR" class="bg-white   z-depth-4">
-                    <h3 style="text-align:center;">R&Eacute;SERVATION:</h3>
+                    <h2 style="text-align:center;">R&Eacute;SERVATION:</h2>
                     <form id="formReservation">
                         <input type="text" id="name" name="name" placeholder="Votre Nom" title="nom" class="inputReservation" required><br>
                         <input type="text" id="firstname" name="firstname" placeholder="Votre Prénom" title="prenom" class="inputReservation" required><br>
@@ -145,7 +145,7 @@
             <aside id="infoStation" class="col-xs-12 col-md-4">
                 <div id="info" class="bg-white   z-depth-4">
                     <h3 style="text-align:center;">INFORMATION STATION:</h3><br>
-                    <h4 class=" " id="stationName"></h4>
+                    <h4 id="stationName">nom de la station</h4>
                     <h5>Localisation: <span id="indicAdress"></span></h5><br>
                     <h5>Status: <span id="statusStation"></span></h5><br>
                     <h5>Vélo(s) disponible: <span id="availableBike"></span></h5><br>
@@ -204,12 +204,12 @@
 
     <!-- Modal -->
     <!-- Modal Pas de vélo -->
-    <div id="noBike" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="noBike" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                    <h4 class="modal-title" id="myModalLabel1">Information:</h4>
                 </div>
                 <div class="modal-body">
                     <p>Aucun vélo disponible dans cette station</p>
@@ -221,12 +221,12 @@
         </div>
     </div>
     <!-- Modal Pas de signature -->
-    <div id="signReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="signReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                    <h4 class="modal-title" id="myModalLabel2">Information:</h4>
                 </div>
                 <div class="modal-body">
                     <p>Veuillez signer le formulaire de réservation s.v.p. </p>
@@ -238,12 +238,12 @@
         </div>
     </div>
     <!-- Modal Réservation en cours -->
-    <div id="gotReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="gotReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                    <h4 class="modal-title" id="myModalLabel3">Information:</h4>
                 </div>
                 <div class="modal-body">
                     <p>Une réservation est déjà en cours.</p>
@@ -257,12 +257,12 @@
     </div>
 
     <!-- Modal Réservation annulé -->
-    <div id="annulReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="annulReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                    <h4 class="modal-title" id="myModalLabel4">Information:</h4>
                 </div>
                 <div class="modal-body">
                     <p>Réservation annulée !!!</p>
@@ -276,12 +276,12 @@
 
 
     <!-- Modal Réservation expiré -->
-    <div id="expiReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div id="expiReservation" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Information:</h4>
+                    <h4 class="modal-title" id="myModalLabel5">Information:</h4>
                 </div>
                 <div class="modal-body">
                     <p>Votre réservation a expiré</p>
@@ -295,7 +295,7 @@
 
 
     <!--     script jQuery    -->
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script   src="js/jquery-3.3.1.min.js"></script>
 
     <!--     Appel de l'api map     -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxCpO4uRX3qiHkx9fGFKLyo-BYTZy1SrA" async defer></script>
@@ -304,17 +304,17 @@
     <!--     bootstrap     -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--     slider     -->
-    <script type="text/javascript" src="js/Slider.js"></script>
+    <script   src="js/Slider.js"></script>
     <!--     class Map     -->
-    <script type="text/javascript" src="js/Map.js"></script>
+    <script   src="js/Map.js"></script>
     <!--     regroupement de marqueur     -->
-    <script type="text/javascript" src="js/markerclusterer.js"></script>
+    <script   src="js/markerclusterer.js"></script>
     <!--     canvas     -->
-    <script type="text/javascript" src="js/Canvas.js"></script>
+    <script   src="js/Canvas.js"></script>
     <!--     class Reservation     -->
-    <script type="text/javascript" src="js/Reservation.js"></script>
+    <script   src="js/Reservation.js"></script>
     <!--     main script     -->
-    <script type="text/javascript" src="js/main.js"></script>
+    <script   src="js/main.js"></script>
 
 
 </body>
