@@ -91,21 +91,7 @@ caption
 {
     color: white;
 }
-/************Section resa*********/
 
-#resa h2
-{
-    margin-bottom: -1.1em;
-    padding-top: 0.1em;
-    padding-left: 10px;
-    padding-bottom: 0.1em;
-    border-radius: 5px 5px 0 0;
-}
-
-.formTitle
-{
-    text-align:center;
-}
 
 /**********Slider************/
 /*xs*sm*/
@@ -140,7 +126,7 @@ caption
     padding: 0;
     height: 200px;
     border-radius: 5px;
-    width: 70%;
+    width: 720px;
 }
 
 
@@ -220,7 +206,21 @@ caption
     padding-left: 6px;
     font-size: 2em;
 }
+/************Section resa*********/
 
+#resa h2
+{
+    margin-bottom: -1.1em;
+    padding-top: 0.1em;
+    padding-left: 10px;
+    padding-bottom: 0.1em;
+    border-radius: 5px 5px 0 0;
+}
+
+.formTitle
+{
+    text-align:center;
+}
 /**********infoStation**********/
 #resa 
 {
