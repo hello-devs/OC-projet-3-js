@@ -40,7 +40,7 @@ class Map {
                 icon: image
             });
 
-            //On supprime le code Station qui n'est pas un Id unique
+            //On supprime le code Station qui n'est pas un id unique
             var simpleName = /^\#[0-9]* ?-{1} {1}/;
             marker.title = station.name.replace(simpleName, "");
 
@@ -70,26 +70,20 @@ class Map {
             }
 
             markers.push(marker);
+            
             marker.addListener('click', () => {
                 if (station.available_bikes > 0) {
                     //map
                     this.map.stationSelect.name = marker.title;
                     this.map.stationSelect.address = station.address;
-
-
                     //aside
                     $('#infoReservation').css('display', 'none');
-                    //$('#infoStation').remove();
-
                     $('#map').removeClass('col s12').addClass('col s12 l8');
 
                     $('#infoStation').css('display', 'block');
-
                     $('#stationName').text(marker.title);
                     $('#statusStation').text(station.status);
                     $('#indicAdress').text(station.address);
-
-                    //*
                     //Reservation en cours -1 vélo
                     if (sessionStorage.getItem('reservation'))
                     {
@@ -103,34 +97,27 @@ class Map {
                             console.log('station differente');
                         }
                     }
-                    //*/          
-
                     $('#availableBike').text(station.available_bikes);
 
                     //Reservation
                     $('#btnSelect').click(() => {
 
-                        if (sessionStorage.getItem('reservation')) {
-
+                        if (sessionStorage.getItem('reservation')) 
+                        {
                             /////////////Modal////////////////////
                             $('#gotReservation').modal();
-
                         } else {
                             this.reservation.showReservationForm(station, this.map);
                         }
-
                     });
 
                 } else {
                     /////////////Modal////////////////////
                     $('#noBike').modal();
-                    //window.location = ("./index.html");
                 }
             });
+            
         });
-
-
-
         //MarkerClusterer//////////////////////////////
         //option des markers regroupé
         var options = {

@@ -1,4 +1,3 @@
-/* global resa, map */
 
 class Reservation {
 

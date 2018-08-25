@@ -5,11 +5,14 @@
  */
 
 
-
+/**
+ * 
+ */
 class Canvas
 {
     /**
      * 
+     * @argument {Object Reservation} reservation 
      * @returns {Canvas}
      */
     constructor(reservation)
@@ -41,10 +44,7 @@ class Canvas
 
         // Bouton Save :
         $('#formReservation').submit(() => {
-            /*sauvegarde image a travailler
-             var canvas_tmp = document.getElementById("signature");
-             window.location = canvas_tmp.toDataURL("imgs/canvas/png");
-             */
+
             this.clear_canvas();
         });
     }
