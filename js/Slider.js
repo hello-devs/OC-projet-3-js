@@ -3,8 +3,8 @@ class Slider {
     constructor(idDivSlider, idPrevArrow, idNextArrow) {
         this.slideActif = 0;
         this.sliderNum = 1;
-        var idDivSlider = document.getElementById(idDivSlider);
-        this.indexSlide = idDivSlider.querySelectorAll("img").length;
+        this.idDivSlider = document.getElementById(idDivSlider);
+        this.indexSlide = this.idDivSlider.querySelectorAll("img").length;
 
 
         document.addEventListener('keydown', (e) => {
