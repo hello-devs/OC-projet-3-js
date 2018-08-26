@@ -97,8 +97,6 @@ class Reservation {
         this.reservation.limit = new Date(dateReservation.setMinutes(dateReservation.getMinutes() + 20)); //1 Pour test
         var now = new Date();
 
-
-
         if (now <= this.reservation.limit) {
 
             if (now.getTime() < this.reservation.limit.getTime()) {
@@ -145,14 +143,13 @@ class Reservation {
 
         } else {
             console.log("expiré");
-            //clearInterval(reservation.actualisationTps);
             this.expire();
             /////////////Modal////////////////////
             $('#expiReservation').modal();
-            //////////////////////////////////////////////Solution temporaire:
+            //Redirection vers l'accueil
             setTimeout(function () {
                 window.location = ("./index.html");
-            }, 2000);
+            }, 1500);
         }
 
 
