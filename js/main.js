@@ -5,7 +5,7 @@ var sliderElt = new Slider("divHelp", "prevArrow", "nextArrow");
 var resa = new Reservation;
 //On vérifie la présence d'une réservation à la connection
 resa.checkStatutReservation();
-var canvas = new Canvas(resa);
+var canvas = new Canvas("signature","reset","formReservation",resa);
 
 
 $(document).ready(function () { //Quand la page est chargé

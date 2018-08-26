@@ -15,12 +15,12 @@ class Canvas
      * @argument {Object Reservation} reservation 
      * @returns {Canvas}
      */
-    constructor(reservation)
+    constructor(idDivCanvas,idBtnReset,idFormRes,reservation)
     {
         this.reservation = reservation;
         this.painting = false;
         this.started = false;
-        this.canvas = $('#signature');
+        this.canvas = $('#' + idDivCanvas);
         this.cursorX;
         this.cursorY;
         this.context = this.canvas[0].getContext('2d');
@@ -37,16 +37,10 @@ class Canvas
         this.canvas.mousemove(this.move.bind(this));
         this.canvas[0].addEventListener('touchmove', this.move.bind(this));
 
-
-        $("#reset").click(() => {
-            this.clear_canvas();
-        });
+        $("#" + idBtnReset).click(() => {this.clear_canvas();});
 
         // Bouton Save :
-        $('#formReservation').submit(() => {
-
-            this.clear_canvas();
-        });
+        $('#' + idFormRes).submit(() => {this.clear_canvas();});
     }
 
     /**
